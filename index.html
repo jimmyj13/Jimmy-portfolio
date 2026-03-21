@@ -361,7 +361,9 @@
           <div><div class="contact-label">GitHub</div><div class="contact-value"><a href="https://github.com/jimmyj13" target="_blank">github.com/jimmyj13</a></div></div>
         </div>
       </div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none"><input name="bot-field"></p>
         <div class="form-row">
           <div class="form-group">
             <label>Name</label>
@@ -413,10 +415,24 @@
   reveals.forEach(r => observer.observe(r));
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('button[type=submit]');
-    btn.textContent = 'Message sent ✓';
-    btn.style.background = '#2db870';
-    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 3000);
+    const form = e.target;
+    const btn = form.querySelector('button[type=submit]');
+    const data = new FormData(form);
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+      .then(() => {
+        btn.textContent = 'Message sent ✓';
+        btn.style.background = '#2db870';
+        form.reset();
+        setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; btn.disabled = false; }, 4000);
+      })
+      .catch(() => {
+        btn.textContent = 'Error — try again';
+        btn.style.background = '#e05555';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 3000);
+      });
   }
 </script>
 </body>
