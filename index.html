@@ -343,7 +343,7 @@
         </div>
         <div class="contact-item">
           <div class="contact-icon">✉️</div>
-          <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:jimmyjose13j@gmail.com">jimmyjose13j@gmail.com</a></div></div>
+          <div><div class="contact-label">Email</div><div class="contact-value"><a href="/cdn-cgi/l/email-protection#b9d3d0d4d4c0d3d6cadc888ad3f9ded4d8d0d597dad6d4"><span class="__cf_email__" data-cfemail="12787b7f7f6b787d617723217852757f737b7e3c717d7f">[email&#160;protected]</span></a></div></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📞</div>
@@ -361,9 +361,10 @@
           <div><div class="contact-label">GitHub</div><div class="contact-value"><a href="https://github.com/jimmyj13" target="_blank">github.com/jimmyj13</a></div></div>
         </div>
       </div>
-      <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
-        <input type="hidden" name="form-name" value="contact">
-        <p style="display:none"><input name="bot-field"></p>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="access_key" value="e5b799df-d201-442f-8c9c-5c484124cfb0">
+        <input type="hidden" name="subject" value="New message from portfolio contact form">
+        <input type="checkbox" name="botcheck" style="display:none">
         <div class="form-row">
           <div class="form-group">
             <label>Name</label>
@@ -391,13 +392,13 @@
 <footer>
   <div class="footer-links">
     <a href="https://github.com/jimmyj13" target="_blank">GitHub</a>
-    <a href="mailto:jimmyjose13j@gmail.com">Email</a>
+    <a href="/cdn-cgi/l/email-protection#d3b9babebeaab9bca0b6e2e0b993b4beb2babffdb0bcbe">Email</a>
     <a href="#home">Back to top ↑</a>
   </div>
   <p>© 2025 Jimmy Jose · Built from scratch · Hosted on GitHub Pages</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const ham = document.getElementById('ham');
   const mobileMenu = document.getElementById('mobileMenu');
   ham.addEventListener('click', () => {
@@ -420,20 +421,11 @@
     const data = new FormData(form);
     btn.textContent = 'Sending...';
     btn.disabled = true;
-    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
-      .then(() => {
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.success) throw new Error('Failed');
         btn.textContent = 'Message sent ✓';
         btn.style.background = '#2db870';
         form.reset();
-        setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; btn.disabled = false; }, 4000);
-      })
-      .catch(() => {
-        btn.textContent = 'Error — try again';
-        btn.style.background = '#e05555';
-        btn.disabled = false;
-        setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 3000);
-      });
-  }
-</script>
-</body>
-</html>
+        setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; btn.disabled = false; }, 4000)
