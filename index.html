@@ -139,15 +139,17 @@
     .form-row { grid-template-columns: 1fr; }
     .stat-row { justify-content: center; }
     h2 { margin-bottom: 1.75rem; }
-    .hero-badge { display: inline-flex; }
   }
   @media (max-width: 480px) {
     .hero-photo { width: 190px; height: 190px; }
     .projects-grid { grid-template-columns: 1fr; }
     .cert-grid { grid-template-columns: 1fr; }
   }
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.visible { opacity: 1; transform: none; }
+
+  /* Reveal — visible by default, animated only when JS adds .animated class to body */
+  .reveal { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
+  body.animated .reveal { opacity: 0; transform: translateY(24px); }
+  body.animated .reveal.visible { opacity: 1; transform: none; }
 </style>
 </head>
 <body>
@@ -179,7 +181,7 @@
     <div class="hero-content">
       <div class="hero-badge"><span class="dot"></span> Open to opportunities</div>
       <h1>Hi, I'm<br><span class="name-accent">Jimmy Jose</span></h1>
-      <p class="hero-tagline">Software Engineer – Technical Support with 1.5+ years building reliable hosting infrastructure and resolving complex server issues at scale.</p>
+      <p class="hero-tagline">Software Engineer - Technical Support with 1.5+ years building reliable hosting infrastructure and resolving complex server issues at scale.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">Get in Touch</a>
         <a href="#experience" class="btn btn-outline">View Experience</a>
@@ -199,7 +201,7 @@
       <div class="about-text">
         <p>I'm a Technical Support Engineer at Bobcares (Poornam Info Vision), where I manage complex hosting environments for clients overseeing millions of websites. My work spans Linux and Windows server administration, cPanel/WHM, Plesk, DNS troubleshooting, and on-call escalation handling.</p>
         <p>I hold a B.Tech in Computer Science and Engineering from SJCET Palai and multiple cPanel University certifications.</p>
-        <p>Beyond support, I build full-stack and AR applications — bridging server operations with modern development skills.</p>
+        <p>Beyond support, I build full-stack and AR applications, bridging server operations with modern development skills.</p>
         <div class="stat-row">
           <div class="stat"><div class="stat-num">1.5+</div><div class="stat-label">Years Experience</div></div>
           <div class="stat"><div class="stat-num">3.5M+</div><div class="stat-label">Websites Supported</div></div>
@@ -207,35 +209,22 @@
         </div>
       </div>
       <div class="skills-block">
-        <h3>Server & Hosting</h3>
+        <h3>Server &amp; Hosting</h3>
         <div class="pills">
-          <span class="pill hi">Linux</span>
-          <span class="pill hi">cPanel / WHM</span>
-          <span class="pill hi">Plesk</span>
-          <span class="pill">SolidCP</span>
-          <span class="pill">OnApp</span>
-          <span class="pill">Windows Server</span>
-          <span class="pill">IIS</span>
-          <span class="pill">R1soft</span>
+          <span class="pill hi">Linux</span><span class="pill hi">cPanel / WHM</span><span class="pill hi">Plesk</span>
+          <span class="pill">SolidCP</span><span class="pill">OnApp</span><span class="pill">Windows Server</span>
+          <span class="pill">IIS</span><span class="pill">R1soft</span>
         </div>
-        <h3>Networking & Security</h3>
+        <h3>Networking &amp; Security</h3>
         <div class="pills">
-          <span class="pill hi">DNS Management</span>
-          <span class="pill">Firewall Config</span>
-          <span class="pill">ModSecurity</span>
-          <span class="pill">cPHulk</span>
-          <span class="pill">SSL / TLS</span>
+          <span class="pill hi">DNS Management</span><span class="pill">Firewall Config</span>
+          <span class="pill">ModSecurity</span><span class="pill">cPHulk</span><span class="pill">SSL / TLS</span>
         </div>
-        <h3>Applications & Dev</h3>
+        <h3>Applications &amp; Dev</h3>
         <div class="pills">
-          <span class="pill">WordPress</span>
-          <span class="pill">Magento</span>
-          <span class="pill">DNN</span>
-          <span class="pill">MySQL</span>
-          <span class="pill hi">React.js</span>
-          <span class="pill">Supabase</span>
-          <span class="pill">Python</span>
-          <span class="pill">Unity (AR)</span>
+          <span class="pill">WordPress</span><span class="pill">Magento</span><span class="pill">DNN</span>
+          <span class="pill">MySQL</span><span class="pill hi">React.js</span><span class="pill">Supabase</span>
+          <span class="pill">Python</span><span class="pill">Unity (AR)</span>
         </div>
       </div>
     </div>
@@ -249,8 +238,8 @@
     <div class="timeline reveal">
       <div class="tl-item">
         <div class="tl-dot"></div>
-        <div class="tl-meta">Aug 2024 – Present</div>
-        <div class="tl-role">Software Engineer – Technical Support</div>
+        <div class="tl-meta">Aug 2024 - Present</div>
+        <div class="tl-role">Software Engineer - Technical Support</div>
         <div class="tl-company">Poornam Info Vision Pvt. Ltd. (Bobcares) · Kottayam, India</div>
         <ul class="tl-bullets">
           <li>Resolve complex hosting tickets covering server provisioning, DNS, cPanel/Plesk, and firewall configurations for a large-scale client managing 3.5M+ websites.</li>
@@ -274,17 +263,13 @@
         <span class="proj-tag">Civic Tech · Web App</span>
         <div class="proj-title">People's Ration</div>
         <p class="proj-desc">A full-stack civic-tech platform designed to eliminate bootleg selling of government ration items. Citizens can log in to customize their ration allocations, creating a transparent and accountable distribution channel.</p>
-        <div class="proj-stack">
-          <span>React.js</span><span>Supabase</span><span>PostgreSQL</span>
-        </div>
+        <div class="proj-stack"><span>React.js</span><span>Supabase</span><span>PostgreSQL</span></div>
       </div>
       <div class="project-card">
         <span class="proj-tag">AR · Android</span>
         <div class="proj-title">Augment Space</div>
         <p class="proj-desc">An augmented reality Android app that simplifies interior design. Users can place and interact with 3D furniture models in real-world spaces through their device camera, making complex AR technology accessible to everyday users.</p>
-        <div class="proj-stack">
-          <span>Unity</span><span>ARCore</span><span>C#</span><span>Android</span>
-        </div>
+        <div class="proj-stack"><span>Unity</span><span>ARCore</span><span>C#</span><span>Android</span></div>
       </div>
     </div>
   </div>
@@ -293,40 +278,16 @@
 <section id="certifications">
   <div class="section-inner">
     <p class="section-label">Certifications</p>
-    <h2>Credentials & Training</h2>
+    <h2>Credentials &amp; Training</h2>
     <div class="cert-grid reveal">
-      <div class="cert-card">
-        <div class="cert-icon">🏅</div>
-        <div><div class="cert-name">cPanel Professional (CPP)</div><div class="cert-issuer">cPanel University</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">🏅</div>
-        <div><div class="cert-name">cPanel Web Admin (CWA)</div><div class="cert-issuer">cPanel University</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">🏅</div>
-        <div><div class="cert-name">cPanel Web Server Admin (CWSA)</div><div class="cert-issuer">cPanel University</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">🛡️</div>
-        <div><div class="cert-name">ModSecurity for cPanel</div><div class="cert-issuer">cPanel University</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">⚡</div>
-        <div><div class="cert-name">LiteSpeed for cPanel</div><div class="cert-issuer">cPanel University</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">🔒</div>
-        <div><div class="cert-name">cPHulk Brute Force Protection</div><div class="cert-issuer">cPanel University</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">🌐</div>
-        <div><div class="cert-name">EnglishScore B2 (Core + Speaking)</div><div class="cert-issuer">British Council</div></div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">🐍</div>
-        <div><div class="cert-name">Programming for Everybody (Python)</div><div class="cert-issuer">Coursera</div></div>
-      </div>
+      <div class="cert-card"><div class="cert-icon">🏅</div><div><div class="cert-name">cPanel Professional (CPP)</div><div class="cert-issuer">cPanel University</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🏅</div><div><div class="cert-name">cPanel Web Admin (CWA)</div><div class="cert-issuer">cPanel University</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🏅</div><div><div class="cert-name">cPanel Web Server Admin (CWSA)</div><div class="cert-issuer">cPanel University</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🛡️</div><div><div class="cert-name">ModSecurity for cPanel</div><div class="cert-issuer">cPanel University</div></div></div>
+      <div class="cert-card"><div class="cert-icon">⚡</div><div><div class="cert-name">LiteSpeed for cPanel</div><div class="cert-issuer">cPanel University</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🔒</div><div><div class="cert-name">cPHulk Brute Force Protection</div><div class="cert-issuer">cPanel University</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🌐</div><div><div class="cert-name">EnglishScore B2 (Core + Speaking)</div><div class="cert-issuer">British Council</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🐍</div><div><div class="cert-name">Programming for Everybody (Python)</div><div class="cert-issuer">Coursera</div></div></div>
     </div>
   </div>
 </section>
@@ -343,7 +304,7 @@
         </div>
         <div class="contact-item">
           <div class="contact-icon">✉️</div>
-          <div><div class="contact-label">Email</div><div class="contact-value"><a href="/cdn-cgi/l/email-protection#b9d3d0d4d4c0d3d6cadc888ad3f9ded4d8d0d597dad6d4"><span class="__cf_email__" data-cfemail="12787b7f7f6b787d617723217852757f737b7e3c717d7f">[email&#160;protected]</span></a></div></div>
+          <div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:jimmyjose13j@gmail.com">jimmyjose13j@gmail.com</a></div></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📞</div>
@@ -351,10 +312,7 @@
         </div>
         <div class="contact-item">
           <div class="contact-icon">💼</div>
-          <div>
-            <div class="contact-label">LinkedIn</div>
-            <div class="contact-value"><a href="https://www.linkedin.com/in/jimmy-jose-5039a9201" target="_blank">linkedin.com/in/jimmy-jose-5039a9201</a></div>
-          </div>
+          <div><div class="contact-label">LinkedIn</div><div class="contact-value"><a href="https://www.linkedin.com/in/jimmy-jose-5039a9201" target="_blank">linkedin.com/in/jimmy-jose-5039a9201</a></div></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">🐙</div>
@@ -366,24 +324,12 @@
         <input type="hidden" name="subject" value="New message from portfolio contact form">
         <input type="checkbox" name="botcheck" style="display:none">
         <div class="form-row">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" placeholder="Your name" required>
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" placeholder="your@email.com" required>
-          </div>
+          <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
+          <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
         </div>
-        <div class="form-group">
-          <label>Subject</label>
-          <input type="text" placeholder="What's this about?">
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Your message..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="align-self:flex-start">Send Message →</button>
+        <div class="form-group"><label>Subject</label><input type="text" name="subject_line" placeholder="What's this about?"></div>
+        <div class="form-group"><label>Message</label><textarea name="message" placeholder="Your message..."></textarea></div>
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start">Send Message</button>
       </form>
     </div>
   </div>
@@ -392,16 +338,17 @@
 <footer>
   <div class="footer-links">
     <a href="https://github.com/jimmyj13" target="_blank">GitHub</a>
-    <a href="/cdn-cgi/l/email-protection#d3b9babebeaab9bca0b6e2e0b993b4beb2babffdb0bcbe">Email</a>
-    <a href="#home">Back to top ↑</a>
+    <a href="mailto:jimmyjose13j@gmail.com">Email</a>
+    <a href="#home">Back to top</a>
   </div>
-  <p>© 2025 Jimmy Jose · Built from scratch · Hosted on GitHub Pages</p>
+  <p>2025 Jimmy Jose · Hosted on Netlify</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+  // Nav
   const ham = document.getElementById('ham');
   const mobileMenu = document.getElementById('mobileMenu');
-  ham.addEventListener('click', () => {
+  ham.addEventListener('click', function() {
     ham.classList.toggle('open');
     mobileMenu.classList.toggle('open');
   });
@@ -409,24 +356,44 @@
     ham.classList.remove('open');
     mobileMenu.classList.remove('open');
   }
-  document.body.classList.add('js-ready');
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.12 });
-  reveals.forEach(r => observer.observe(r));
+
+  // Scroll reveal — only activate after page fully loaded
+  window.addEventListener('load', function() {
+    document.body.classList.add('animated');
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(r) { observer.observe(r); });
+  });
+
+  // Web3Forms submit
   function handleSubmit(e) {
     e.preventDefault();
-    const form = e.target;
-    const btn = form.querySelector('button[type=submit]');
-    const data = new FormData(form);
+    var form = e.target;
+    var btn = form.querySelector('button[type=submit]');
+    var data = new FormData(form);
     btn.textContent = 'Sending...';
     btn.disabled = true;
     fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
-      .then(res => res.json())
-      .then(data => {
-        if (!data.success) throw new Error('Failed');
-        btn.textContent = 'Message sent ✓';
-        btn.style.background = '#2db870';
-        form.reset();
-        setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; btn.disabled = false; }, 4000)
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.success) {
+          btn.textContent = 'Message sent!';
+          btn.style.background = '#2db870';
+          form.reset();
+          setTimeout(function() { btn.textContent = 'Send Message'; btn.style.background = ''; btn.disabled = false; }, 4000);
+        } else { throw new Error('Failed'); }
+      })
+      .catch(function() {
+        btn.textContent = 'Error - try again';
+        btn.style.background = '#e05555';
+        btn.disabled = false;
+        setTimeout(function() { btn.textContent = 'Send Message'; btn.style.background = ''; }, 3000);
+      });
+  }
+</script>
+</body>
+</html>
