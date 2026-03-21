@@ -1,433 +1,706 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Website Title -->
-    <title>Jimmy Jose</title>
-    <!-- Bootstrap -->
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Font-Awesome -->
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<!-- Lightbox -->
-	<link href="assets/lightbox/css/lightbox.css" rel="stylesheet">
-    <!-- Text Rotator-->
-	<link href="assets/textrotator/simpletextrotator.css" rel="stylesheet">
-	<!-- FlexSlider -->
-    <link href="assets/flexslider/flexslider.css" rel="stylesheet">
-	<!-- Theme Style -->
-    <link href="css/style.css" rel="stylesheet">
-	<!-- Animations -->
-    <link href="css/animate.css" rel="stylesheet">
-	<!-- Custom Favicon -->
-	<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="assets/html5shiv/html5shiv.js"></script>
-    <script src="assets/respond/respond.min.js"></script>
-    <![endif]-->
-  </head>
-    <body id="top">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jimmy Jose — Technical Support Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      <!-- ****************************** Preloader ************************** -->
-      <div id="preloader"></div>
+  :root {
+    --bg: #0a0c10;
+    --surface: #111318;
+    --surface2: #181c23;
+    --accent: #4af0a0;
+    --accent2: #38d4e0;
+    --text: #e8eaf0;
+    --muted: #7a8090;
+    --border: #1e2230;
+    --radius: 14px;
+  }
 
+  html { scroll-behavior: smooth; }
 
-	  	<!-- ==========================
-        HEADER SECTION 
-        =========================== -->
-        <header id="home">
-		    <!-- creative menu -->
-            <div class="container-fluid">
-              <div class="row">
-                <div class="menu-wrap">
-				<nav class="menu">
-				    <!-- Menu Links -->
-					<div class="icon-list">
-						<a href="index.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
-						<a href="index.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
-						<a href="index.html#service"><i class="fa fa-fw fa-globe"></i><span>Service</span></a>
-						<a href="index.html#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a>
-					</div>
-				</nav>
-			    </div>
-			    <button class="menu-button" id="open-button"></button><!-- menu button -->
-              </div><!--/row-->
-            </div><!--/container-->
-		  <!-- Header Image -->
-          <section class="hero" id="hero">
-            <div class="container">
-			  <!-- Slider Button (don't edit!)-->
-              <div class="row">
-                <div class="col-md-12 text-right navicon">
-                  <a id="nav-toggle" class="nav_slide_button" href="index.html#"><span></span></a>
-                </div>
-              </div>
-			  <!-- HEADER HEADLINE -->
-              <div class="row">
-                <div class="col-md-8 col-md-offset-1 inner">
-                  <h1 class="animated fadeInDown">
-                    J<span style="color:#E04343;">im</span>my<br/>
-                    <span>J<span style="color:#FFE800">os</span>e</span>
-                  </h1><!-- Title -->
-                  <h3 class="animated">Web Dev</h3><!-- Text Rotator -->
-                </div>
-              </div>
-			  <!-- Learn More Button -->
-              <div class="row">
-                <div class="col-md-6 col-md-offset-3 text-center">
-                <a href="index.html#about" class="scrollto wow fadeInUp delay-5s ">
-			            <p>SEE MORE</p>
-			            <p class="scrollto--arrow"><img src="img/scroll-down.png" alt="scroll down arrow"></p>
-			          </a>
-                </div>
-              </div>
-            </div>
-          </section>
-		  <!-- Header Image End -->
-        </header>
-		<!-- ==========================
-        HEADER SECTION END  
-        =========================== -->
-		
-		
-		
-		
-		<!-- ==========================
-        ABOUT SECTION  
-        =========================== -->
-        <section class="intro text-center section-padding color-bg" id="about">
-          <div class="container">
-		    <!-- WELCOME TEXT -->
-            <div class="row">
-              <div class="col-md-8 col-md-offset-2 wp1">
-                <h1 class="arrow">A little <span>about</span> me</h1><!-- Headline -->
-				<!-- about / welcome text -->
-                <p>I am a 4th year Computer Science and Engineering student of SJCET palai.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(1.2rem, 5vw, 3rem);
+    height: 64px;
+    background: rgba(10,12,16,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
 
+  /* hamburger */
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px; background: none; border: none;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--text); border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+  .mobile-menu {
+    display: none; position: fixed; top: 64px; left: 0; right: 0;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 1rem 0; z-index: 99; flex-direction: column; align-items: center; gap: 0;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--text); text-decoration: none; font-weight: 500;
+    padding: 0.9rem 2rem; width: 100%; text-align: center;
+    border-bottom: 1px solid var(--border); font-size: 0.95rem;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    transition: color 0.2s, background 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--accent); background: var(--surface2); }
 
-<!-- ==========================
-        SERVICE SECTION 
-        =========================== -->
-        <section class="features text-center section-padding" id="service">
-          <div class="container">
-        <!-- Headline -->
-            <div class="row">
-              <div class="col-md-12">
-                <h1 class="arrow">I do amazing things for clients</h1>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-          <div class="services">
-          <!-- Service Box 1 -->
-                  <div class="col-md-4 wp2 item delay-05s">
-                    <div class="icon">
-                      <i class="fa fa-desktop"></i><!-- Icon -->
-                    </div>
-                    <h2>Web Developer</h2><!-- Title -->
-                    <p>I design and update websites and online applications using various programming languages and design tools..</p><!-- Description -->
-                  </div>
-  
-          </div>
-                  <div class="clearfix"></div>
-              </div>
-            </div>
-          </div>
-        </section>
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: clamp(5rem, 10vw, 8rem) clamp(1.2rem, 8vw, 6rem) 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem; align-items: center;
+    max-width: 1100px; margin: 0 auto; width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(74,240,160,0.08); border: 1px solid rgba(74,240,160,0.25);
+    border-radius: 99px; padding: 0.35rem 1rem;
+    font-size: 0.78rem; color: var(--accent); font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem;
+  }
+  .hero-badge span.dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform: scale(1); }
+    50% { opacity:0.4; transform: scale(1.4); }
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.03em; margin-bottom: 1rem;
+  }
+  h1 .name-accent { color: var(--accent); }
+  .hero-tagline {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--muted); margin-bottom: 2rem; max-width: 480px;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.6rem; border-radius: 8px; font-weight: 600;
+    font-size: 0.9rem; text-decoration: none; transition: all 0.2s;
+    cursor: pointer; border: none; font-family: 'DM Sans', sans-serif;
+  }
+  .btn-primary {
+    background: var(--accent); color: #050a08;
+  }
+  .btn-primary:hover { background: #6dffc0; transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
-<!-- SKILLS -->
-<div class="skill-bars">
-  <div class="bar">
-    <div class="info">
-      <span>HTML&CSS</span>
-    </div>
-    <div class="progress-line html">
-      <span>Python</span>
-    </div>
-  </div>
-  <div class="bar">
-    <div class="info">
-      <span></span>
-    </div>
-    <div class="progress-line css">
-      <span></span>
-    </div>
-  </div>
-  <div class="bar">
-    <div class="info">
-      <span>React.js</span>
-    </div>
-    <div class="progress-line javascript">
-      <span></span>
-    </div>
-  </div>
-  <div class="bar">
-    <div class="info">
-      <span>java</span>
-    </div>
-    <div class="progress-line java">
-      <span></span>
-    </div>
-  </div>
-  <div class="bar">
-    <div class="info">
-      <span>C</span>
-    </div>
-    <div class="progress-line C">
-      <span></span>
-    </div>
-  </div>
+  .hero-photo-wrap {
+    display: flex; justify-content: center; align-items: center;
+  }
+  .hero-photo {
+    width: clamp(220px, 40vw, 340px);
+    height: clamp(220px, 40vw, 340px);
+    border-radius: 50%;
+    object-fit: cover; object-position: top center;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 60px rgba(74,240,160,0.15), 0 0 0 8px rgba(74,240,160,0.06);
+  }
+
+  /* bg grid decoration */
+  .bg-grid {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px; opacity: 0.35;
+    mask-image: radial-gradient(ellipse at 60% 50%, rgba(0,0,0,0.8) 30%, transparent 70%);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: clamp(3rem, 7vw, 5rem) clamp(1.2rem, 8vw, 6rem); }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 800; letter-spacing: -0.03em;
+    margin-bottom: 2.5rem; line-height: 1.2;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--surface); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+  }
+  .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 1rem; line-height: 1.75; }
+  .stat-row { display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .stat { text-align: left; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem; font-weight: 800; color: var(--accent);
+  }
+  .stat-label { font-size: 0.8rem; color: var(--muted); }
+
+  /* skills pills */
+  .skills-block h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem; font-weight: 700; margin-bottom: 1rem; color: var(--text);
+  }
+  .pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .pill {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 6px; padding: 0.3rem 0.75rem;
+    font-size: 0.8rem; color: var(--muted); font-weight: 500;
+    transition: all 0.2s;
+  }
+  .pill:hover { border-color: var(--accent); color: var(--accent); }
+  .pill.hi { border-color: rgba(74,240,160,0.35); color: var(--accent); }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--bg); }
+  .timeline { position: relative; padding-left: 1.5rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
+    width: 2px; background: linear-gradient(var(--accent), transparent);
+  }
+  .tl-item { position: relative; margin-bottom: 2.5rem; }
+  .tl-dot {
+    position: absolute; left: -1.5rem; top: 6px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent); transform: translateX(-4px);
+    box-shadow: 0 0 8px var(--accent);
+  }
+  .tl-meta { font-size: 0.8rem; color: var(--accent); font-weight: 600; margin-bottom: 0.3rem; }
+  .tl-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem; font-weight: 700; margin-bottom: 0.15rem;
+  }
+  .tl-company { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.75rem; }
+  .tl-bullets { list-style: none; padding: 0; }
+  .tl-bullets li {
+    padding: 0.3rem 0 0.3rem 1.2rem;
+    position: relative; color: var(--muted); font-size: 0.9rem; line-height: 1.6;
+  }
+  .tl-bullets li::before {
+    content: '›'; position: absolute; left: 0; color: var(--accent); font-size: 1.1rem;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--surface); }
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.75rem;
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .project-card:hover { border-color: rgba(74,240,160,0.3); transform: translateY(-4px); }
+  .project-card:hover::before { transform: scaleX(1); }
+  .proj-tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent2);
+    margin-bottom: 0.75rem;
+  }
+  .proj-title {
+    font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  .proj-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+  .proj-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+  .proj-stack span {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 0.2rem 0.55rem;
+    font-size: 0.72rem; color: var(--muted);
+  }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications { background: var(--bg); }
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1rem; }
+  .cert-card {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.25rem 1.5rem;
+    display: flex; align-items: flex-start; gap: 0.9rem;
+    transition: border-color 0.2s;
+  }
+  .cert-card:hover { border-color: rgba(74,240,160,0.3); }
+  .cert-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .cert-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+  .cert-issuer { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--surface); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+  }
+  .contact-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+  .contact-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: rgba(74,240,160,0.08); border: 1px solid rgba(74,240,160,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .contact-label { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .contact-value { font-size: 0.95rem; font-weight: 500; }
+  .contact-value a { color: var(--text); text-decoration: none; }
+  .contact-value a:hover { color: var(--accent); }
+
+  /* contact form */
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.78rem; color: var(--muted); font-weight: 500; }
+  .form-group input, .form-group textarea {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 0.7rem 1rem;
+    color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    transition: border-color 0.2s; outline: none;
+    resize: vertical;
+  }
+  .form-group input:focus, .form-group textarea:focus {
+    border-color: var(--accent);
+  }
+  .form-group textarea { min-height: 110px; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 2rem 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 0.82rem;
+  }
+  .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+  .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero-photo-wrap { order: -1; }
+    .hero-cta { justify-content: center; }
+    .hero-tagline { margin: 0 auto 2rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .stat-row { justify-content: center; }
+    h2 { margin-bottom: 1.75rem; }
+    .hero-badge { display: inline-flex; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-photo {
+      width: 190px; height: 190px;
+    }
+    .projects-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr; }
+  }
+
+  /* scroll fade-in */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#home">JJ</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#certifications" onclick="closeMobile()">Certifications</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
 </div>
-<!-- SKILLS END -->
 
+<!-- HERO -->
+<section id="home">
+  <div class="bg-grid"></div>
+  <div class="hero-grid section-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span> Open to opportunities</div>
+      <h1>Hi, I'm<br><span class="name-accent">Jimmy Jose</span></h1>
+      <p class="hero-tagline">Software Engineer – Technical Support with 1.5+ years building reliable hosting infrastructure and resolving complex server issues at scale.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        <a href="#experience" class="btn btn-outline">View Experience</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="data:image/webp;base64,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" alt="Jimmy Jose">
+    </div>
+  </div>
+</section>
 
-
-		<div class="container-fluid">
-		    <!-- About 1 -->
-			<div class="row color-bg">
-				<div class="col-md-6 nopadding features-intro-img">
-					<div class="about-image" style="background-image:url(img/about1.png)"></div><!-- about image 1 -->
-				</div>
-				<div class="col-md-6 about-text">
-					<h6>High quality web design</h6><!-- headline-->
-					<p>tasks associated with developing websites for hosting via intranet or internet. The web development process includes web design, web content development, client-side/server-side scripting and network security configuration, among other tasks.</p><br><!-- About Text 1 -->
-					<a href="index.html#team" class="weight-outline-btn">Read more</a><!-- read more button  -->			
-				</div>
-			</div>
-		<!-- ==========================
-        ABOUT SECTION END
-        =========================== -->	
-
-
-			
-		<!-- ==========================
-        CUSTOM SPACER
-        =========================== -->
-		<div class="spacer-cta text-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <a href="index.html#contact" class="outline-btn">hire jimmy jose</a>
-              </div>
-            </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">About Me</p>
+    <h2>Engineer by training,<br>problem-solver by nature</h2>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>I'm a Technical Support Engineer at Bobcares (Poornam Info Vision), where I manage complex hosting environments for clients overseeing millions of websites. My work spans Linux and Windows server administration, cPanel/WHM, Plesk, DNS troubleshooting, and on-call escalation handling.</p>
+        <p>I hold a B.Tech in Computer Science and Engineering from SJCET Palai and multiple cPanel University certifications. I'm actively pursuing my CCNA to deepen my networking expertise.</p>
+        <p>Beyond support, I build full-stack and AR applications — bridging server operations with modern development skills.</p>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-num">1.5+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3.5M+</div>
+            <div class="stat-label">Websites Supported</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">6</div>
+            <div class="stat-label">cPanel Certifications</div>
           </div>
         </div>
-		<!-- ==========================
-        CUSTOM SPACER END
-        =========================== -->
-		 
-    
-        
-		
-		
-		
-		
-		
-		
-		<!-- ==========================
-        NEWSLETTER SECTION 
-        =========================== -->
-        <!-- <section>
-		<div class="container-fluid">
-				<div class="row color-bg">
-				    <div class="col-md-6 nopadding subscribe text-center">
-					 <h1><i class="fa fa-paper-plane"></i><span>Subscribe our Newsletter</span></h1>
-                     <form action="index.html#">
-                       <input type="text" name="" value="" placeholder="" required>
-                       <input type="submit" name="" value="Send">
-                    </form>   
-					</div>
-					<div class="col-md-6 nopadding features-intro-img">
-						 <div class="about-image" style="background-image:url(img/newsletter.png)"></div>
-					</div>
-				</div>
-			</div>
-        </section> -->
-		<!-- ==========================
-        NEWSLETTER SECTION END
-        =========================== -->
+      </div>
+      <div class="skills-block">
+        <h3>Server & Hosting</h3>
+        <div class="pills">
+          <span class="pill hi">Linux</span>
+          <span class="pill hi">cPanel / WHM</span>
+          <span class="pill hi">Plesk</span>
+          <span class="pill">SolidCP</span>
+          <span class="pill">OnApp</span>
+          <span class="pill">Windows Server</span>
+          <span class="pill">IIS</span>
+          <span class="pill">R1soft</span>
+        </div>
+        <h3>Networking & Security</h3>
+        <div class="pills">
+          <span class="pill hi">DNS Management</span>
+          <span class="pill">Firewall Config</span>
+          <span class="pill">ModSecurity</span>
+          <span class="pill">cPHulk</span>
+          <span class="pill">SSL / TLS</span>
+          <span class="pill">CCNA (In Progress)</span>
+        </div>
+        <h3>Applications & Dev</h3>
+        <div class="pills">
+          <span class="pill">WordPress</span>
+          <span class="pill">Magento</span>
+          <span class="pill">DNN</span>
+          <span class="pill">MySQL</span>
+          <span class="pill hi">React.js</span>
+          <span class="pill">Supabase</span>
+          <span class="pill">Python</span>
+          <span class="pill">Unity (AR)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-		
-		
-		<!-- ==========================
-        CONTACT SECTION
-        =========================== -->
-        <section class="text-center section-padding contact-wrap" id="contact">
-		  <!-- To Top Button -->
-          <a href="index.html#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
-          <div class="container">
-		    <!-- Headline -->
-            <div class="row">
-              <div class="col-md-12">
-                <h1 class="arrow">Drop <span>me</span> a line</h1>
-              </div>
-            </div>
-            <div class="row contact-details">
-			  <!-- Adress Box -->
-              <div class="col-md-4">
-                <div class="dark-box box-hover">
-                  <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
-                  <p>Changanacherry,Kottayam,Kerala</p>
-                </div>
-              </div>
-			  <!-- Phone Number Box -->
-              <div class="col-md-4">
-                <div class="dark-box box-hover">
-                  <h2><i class="fa fa-mobile"></i><span>Phone</span></h2>
-                  <p>+918129210600</p>
-                </div>
-              </div>
-			  <!-- E-Mail Box -->
-              <div class="col-md-4">
-                <div class="dark-box box-hover">
-                  <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
-                  <p><a href="index.html#">jimmyjose13j@gmail.com</a></p>
-                </div>
-              </div>
-            </div>
-			<div class="row">
-			  <!-- Google Maps (Change your Settings below) -->
-			  <div class="col-md-6">
-			    <div id="googlemaps"></div>
-			  </div>
-			  <!-- Contact Form -->
-			  <div class="col-md-6 contact">
-			     <form role="form">
-				            <!-- Name -->
-                            <div class="row">
-                                <div class="col-md-6">
-								    <!-- E-Mail -->
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Your name">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-								    <!-- Phone Number -->
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email address">
-                                    </div>
-                                </div>
-                            </div>
-							<!-- Message Area -->
-                            <div class="form-group">
-                                <textarea class="form-control" placeholder="Write you message here..." style="height:232px;"></textarea>
-                            </div>
-							<!-- Subtmit Button -->
-                            <button type="submit" class="btn btn-send">
-                                Send message
-                            </button>
-                        </form>
-			  </div>
-			</div>
-			<br>
-			<!-- Social Buttons - use font-awesome, past in what you want -->
-            <div class="row">
-              <div class="col-md-12">
-                <ul class="social-buttons">
-                  <li><a href="https://www.linkedin.com/in/jimmy-jose-5039a9201/" class="social-btn"><i class="fa fa-linkedin"></i></a></li><!-- Linkedin -->
-				  <li><a href="https://www.instagram.com/_.jimmy_.jz/" class="social-btn"><i class="fa fa-instagram"></i></a></li><!-- Instagram -->
-				  <li><a href="https://github.com/jimmyj13" class="social-btn"><i class="fa fa-github"></i></a></li><!-- Github -->
-                </ul>
-              </div>
-            </div>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label">Work History</p>
+    <h2>Where I've worked</h2>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">Aug 2024 – Present</div>
+        <div class="tl-role">Software Engineer – Technical Support</div>
+        <div class="tl-company">Poornam Info Vision Pvt. Ltd. (Bobcares) · Kottayam, India</div>
+        <ul class="tl-bullets">
+          <li>Resolve complex hosting tickets covering server provisioning, DNS, cPanel/Plesk, and firewall configurations for a large-scale client managing 3.5M+ websites.</li>
+          <li>Act as frontline support for end-users across Linux and Windows environments (IIS, WordPress, Magento, DNN).</li>
+          <li>Handle high-priority escalations systematically, delivering root-cause analysis and clear solutions to users and internal teams.</li>
+          <li>Led a process improvement initiative that streamlined ticket workflows and reduced resolution times through structured documentation.</li>
+          <li>Coordinate cross-functionally with server admin and engineering teams across time zones to resolve multi-system incidents.</li>
+          <li>Administer client environments via cPanel, SolidCP, Plesk, and R1soft within strict SLA timelines.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="section-label">Projects</p>
+    <h2>Things I've built</h2>
+    <div class="projects-grid reveal">
+      <div class="project-card">
+        <span class="proj-tag">Civic Tech · Web App</span>
+        <div class="proj-title">People's Ration</div>
+        <p class="proj-desc">A full-stack civic-tech platform designed to eliminate bootleg selling of government ration items. Citizens can log in to customize their ration allocations, creating a transparent and accountable distribution channel.</p>
+        <div class="proj-stack">
+          <span>React.js</span><span>Supabase</span><span>PostgreSQL</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <span class="proj-tag">AR · Android</span>
+        <div class="proj-title">Augment Space</div>
+        <p class="proj-desc">An augmented reality Android app that simplifies interior design. Users can place and interact with 3D furniture models in real-world spaces through their device camera, making complex AR technology accessible to everyday users.</p>
+        <div class="proj-stack">
+          <span>Unity</span><span>ARCore</span><span>C#</span><span>Android</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <p class="section-label">Certifications</p>
+    <h2>Credentials & Training</h2>
+    <div class="cert-grid reveal">
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div>
+          <div class="cert-name">cPanel Professional (CPP)</div>
+          <div class="cert-issuer">cPanel University</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div>
+          <div class="cert-name">cPanel Web Admin (CWA)</div>
+          <div class="cert-issuer">cPanel University</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div>
+          <div class="cert-name">cPanel Web Server Admin (CWSA)</div>
+          <div class="cert-issuer">cPanel University</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🛡️</div>
+        <div>
+          <div class="cert-name">ModSecurity for cPanel</div>
+          <div class="cert-issuer">cPanel University</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">⚡</div>
+        <div>
+          <div class="cert-name">LiteSpeed for cPanel</div>
+          <div class="cert-issuer">cPanel University</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🔒</div>
+        <div>
+          <div class="cert-name">cPHulk Brute Force Protection</div>
+          <div class="cert-issuer">cPanel University</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🌐</div>
+        <div>
+          <div class="cert-name">EnglishScore B2 (Core + Speaking)</div>
+          <div class="cert-issuer">British Council</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🐍</div>
+        <div>
+          <div class="cert-name">Programming for Everybody (Python)</div>
+          <div class="cert-issuer">Coursera</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📡</div>
+        <div>
+          <div class="cert-name">CCNA (In Progress)</div>
+          <div class="cert-issuer">Cisco</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Contact</p>
+    <h2>Let's connect</h2>
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Kottayam, Kerala, India</div>
           </div>
-        </section>
-		<!-- ==========================
-        CONTACT SECTION END
-        =========================== -->
-		
-		
-		
-		<!-- ==========================
-        FOOTER SECTION
-        =========================== -->
-        <footer>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 text-center">
-                <p>All Rights Reserved. &copy; 2022 Jimmy Jose</p>
-              </div>
-            </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:jimmyjose13j@gmail.com">jimmyjose13j@gmail.com</a></div>
           </div>
-        </footer>
-		<!-- ==========================
-        FOOTER SECTION END
-        =========================== -->		
-		
-		
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- SmoothScroll -->           
-    <script type="text/javascript" src="assets/smoothscroll/smoothscroll.js"></script>
-    <!-- Bootstrap -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/waypoints.min.js"></script>
-    <!-- classie.js -->
-	<script src="js/classie.js"></script>
-    <!-- FlexSlider -->
-    <script src="assets/flexslider/jquery.flexslider.js"></script>
-	<!-- Modernizr -->
-    <script src="js/modernizr.js"></script>
-	<!-- Text Rotator -->
-	<script src="assets/textrotator/jquery.simple-text-rotator.js"></script>
-	<!-- Lightbox.js -->
-    <script src="assets/lightbox/js/lightbox.min.js"></script>
-    <!-- Google Maps --> 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeKBBPJTG3v5w3cNPAgM6ZsJiPyL1mP_o&amp;sensor=false"></script>
-	<!-- Theme JavaScript Core -->
-	<script src="js/main.js"></script>
-	<script src="js/script.js"></script>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value"><a href="tel:+918129210600">+91 8129210600</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💼</div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value"><a href="https://www.linkedin.com/in/jimmyjose" target="_blank">linkedin.com/in/jimmyjose</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🐙</div>
+          <div>
+            <div class="contact-label">GitHub</div>
+            <div class="contact-value"><a href="https://github.com/jimmyj13" target="_blank">github.com/jimmyj13</a></div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" placeholder="What's this about?">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Your message..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
 
-	<!-- GOOGLE MAPS DATA -->
-    <script type="text/javascript">
-    // When the window has finished loading create our google map below
-        google.maps.event.addDomListener(window, 'load', init);
-    
-        function init() {
-            // Basic options for a simple Google Map
-            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-            var mapOptions = {
-                // How zoomed in you want the map to start at (always required)
-                zoom: 15,
-                
-                scrollwheel: false,
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="https://github.com/jimmyj13" target="_blank">GitHub</a>
+    <a href="mailto:jimmyjose13j@gmail.com">Email</a>
+    <a href="#home">Back to top ↑</a>
+  </div>
+  <p>© 2025 Jimmy Jose · Built from scratch · Hosted on GitHub Pages</p>
+</footer>
 
-                // The latitude and longitude to center the map (always required)
-                center: new google.maps.LatLng(40.68961985411178, -74.01618003845215), // New York 
+<script>
+  // Hamburger
+  const ham = document.getElementById('ham');
+  const mobileMenu = document.getElementById('mobileMenu');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    ham.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
 
-                // How you would like to style the map. 
-                // This is where you would paste any style found on Snazzy Maps.
-                styles: [	{		featureType:'water',		stylers:[{color:'#F2F2F2'},{visibility:'on'}]	},{		featureType:'landscape',		stylers:[{color:'#FFFFFF'}]	},{		featureType:'road',		stylers:[{saturation:-100},{lightness:45}]	},{		featureType:'road.highway',		stylers:[{visibility:'simplified'}]	},{		featureType:'road.arterial',		elementType:'labels.icon',		stylers:[{visibility:'off'}]	},{		featureType:'administrative',		elementType:'labels.text.fill',		stylers:[{color:'#ADADAD'}]	},{		featureType:'transit',		stylers:[{visibility:'off'}]	},{		featureType:'poi',		stylers:[{visibility:'off'}]	}]
-            };
-
-            // Get the HTML DOM element that will contain your map 
-            // We are using a div with id="map" seen below in the <body>
-            var mapElement = document.getElementById('googlemaps');
-
-            // Create the Google Map using out element and options defined above
-            var map = new google.maps.Map(mapElement, mapOptions);
-        }
-	
-    </script>
-	
-	<!-- TEXT ROTATOR SETTINGS -->
-    <script type="text/javascript">
-    $(".rotate").textrotator({
-      animation: "fade", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
-      separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
-      speed: 2000 // How many milliseconds until the next word show.
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
     });
-    </script>
-	
-    </body>
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = 'Message sent ✓';
+    btn.style.background = '#2db870';
+    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 3000);
+  }
+</script>
+</body>
 </html>
