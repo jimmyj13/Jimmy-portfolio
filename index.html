@@ -87,7 +87,9 @@
   .tl-bullets li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-size: 1.1rem; }
 
   #projects { background: var(--surface); }
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .projects-section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.75rem; margin-top: 2rem; opacity: 0.8; }
+  .projects-section-label:first-of-type { margin-top: 0; }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1rem; }
   .project-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; transition: all 0.3s; position: relative; overflow: hidden; }
   .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
   .project-card:hover { border-color: rgba(74,240,160,0.3); transform: translateY(-4px); }
@@ -97,6 +99,9 @@
   .proj-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
   .proj-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
   .proj-stack span { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0.2rem 0.55rem; font-size: 0.72rem; color: var(--muted); }
+  .proj-links { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
+  .proj-link { font-size: 0.78rem; color: var(--accent); text-decoration: none; border: 1px solid rgba(74,240,160,0.25); border-radius: 5px; padding: 0.25rem 0.65rem; transition: all 0.2s; }
+  .proj-link:hover { background: rgba(74,240,160,0.1); }
 
   #certifications { background: var(--bg); }
   .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1rem; }
@@ -146,7 +151,6 @@
     .cert-grid { grid-template-columns: 1fr; }
   }
 
-  /* Reveal — visible by default, animated only when JS adds .animated class to body */
   .reveal { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
   body.animated .reveal { opacity: 0; transform: translateY(24px); }
   body.animated .reveal.visible { opacity: 1; transform: none; }
@@ -201,10 +205,9 @@
       <div class="about-text">
         <p>I'm a Technical Support Engineer at Bobcares (Poornam Info Vision), where I manage complex hosting environments for clients overseeing millions of websites. My work spans Linux and Windows server administration, cPanel/WHM, Plesk, DNS troubleshooting, and on-call escalation handling.</p>
         <p>I hold a B.Tech in Computer Science and Engineering from SJCET Palai and multiple cPanel University certifications.</p>
-        <p>Beyond support, I build full-stack and AR applications, bridging server operations with modern development skills.</p>
+        <p>Beyond support, I build full-stack, AR, and DevOps projects — bridging server operations with modern engineering practices.</p>
         <div class="stat-row">
           <div class="stat"><div class="stat-num">1.5+</div><div class="stat-label">Years Experience</div></div>
-          <div class="stat"><div class="stat-num">3.5M+</div><div class="stat-label">Websites Supported</div></div>
           <div class="stat"><div class="stat-num">6</div><div class="stat-label">cPanel Certifications</div></div>
         </div>
       </div>
@@ -215,6 +218,11 @@
           <span class="pill">SolidCP</span><span class="pill">OnApp</span><span class="pill">Windows Server</span>
           <span class="pill">IIS</span><span class="pill">R1soft</span>
         </div>
+        <h3>DevOps &amp; Cloud</h3>
+        <div class="pills">
+          <span class="pill hi">Docker</span><span class="pill hi">Kubernetes</span><span class="pill hi">GitHub Actions</span>
+          <span class="pill">Prometheus</span><span class="pill">Grafana</span><span class="pill">Nginx</span>
+        </div>
         <h3>Networking &amp; Security</h3>
         <div class="pills">
           <span class="pill hi">DNS Management</span><span class="pill">Firewall Config</span>
@@ -222,9 +230,8 @@
         </div>
         <h3>Applications &amp; Dev</h3>
         <div class="pills">
-          <span class="pill">WordPress</span><span class="pill">Magento</span><span class="pill">DNN</span>
-          <span class="pill">MySQL</span><span class="pill hi">React.js</span><span class="pill">Supabase</span>
-          <span class="pill">Python</span><span class="pill">Unity (AR)</span>
+          <span class="pill">WordPress</span><span class="pill">Magento</span><span class="pill">MySQL</span>
+          <span class="pill hi">React.js</span><span class="pill">Supabase</span><span class="pill">Python</span><span class="pill">Unity (AR)</span>
         </div>
       </div>
     </div>
@@ -242,7 +249,7 @@
         <div class="tl-role">Software Engineer - Technical Support</div>
         <div class="tl-company">Poornam Info Vision Pvt. Ltd. (Bobcares) · Kottayam, India</div>
         <ul class="tl-bullets">
-          <li>Resolve complex hosting tickets covering server provisioning, DNS, cPanel/Plesk, and firewall configurations for a large-scale client managing 3.5M+ websites.</li>
+          <li>Resolve complex hosting tickets covering server provisioning, DNS, cPanel/Plesk, and firewall configurations for a large-scale client.</li>
           <li>Act as frontline support for end-users across Linux and Windows environments (IIS, WordPress, Magento, DNN).</li>
           <li>Handle high-priority escalations systematically, delivering root-cause analysis and clear solutions to users and internal teams.</li>
           <li>Led a process improvement initiative that streamlined ticket workflows and reduced resolution times through structured documentation.</li>
@@ -258,18 +265,42 @@
   <div class="section-inner">
     <p class="section-label">Projects</p>
     <h2>Things I've built</h2>
+
+    <p class="projects-section-label">Personal Project — March 2026</p>
+    <div class="projects-grid reveal">
+      <div class="project-card">
+        <span class="proj-tag">DevOps · CI/CD · Observability</span>
+        <div class="proj-title">DevOps Pipeline — Uptime Kuma</div>
+        <p class="proj-desc">Built a production-style DevOps pipeline around Uptime Kuma, an open-source Node.js monitoring tool. Covers containerization with multi-stage Docker builds, CI/CD via GitHub Actions, Kubernetes orchestration on Minikube with health probes and persistent storage, and a full observability stack with Prometheus, Grafana dashboards, and Alertmanager Slack notifications.</p>
+        <div class="proj-stack">
+          <span>Docker</span><span>Kubernetes</span><span>GitHub Actions</span>
+          <span>Prometheus</span><span>Grafana</span><span>Alertmanager</span>
+          <span>Nginx Ingress</span><span>Node.js</span><span>Minikube</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/jimmyj13/uptime-kuma" target="_blank" class="proj-link">GitHub</a>
+          <a href="https://hub.docker.com/r/jimmyj13/uptime-kuma" target="_blank" class="proj-link">Docker Hub</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="projects-section-label" style="margin-top:2.5rem">Academic Projects</p>
     <div class="projects-grid reveal">
       <div class="project-card">
         <span class="proj-tag">Civic Tech · Web App</span>
         <div class="proj-title">People's Ration</div>
         <p class="proj-desc">A full-stack civic-tech platform designed to eliminate bootleg selling of government ration items. Citizens can log in to customize their ration allocations, creating a transparent and accountable distribution channel.</p>
-        <div class="proj-stack"><span>React.js</span><span>Supabase</span><span>PostgreSQL</span></div>
+        <div class="proj-stack">
+          <span>React.js</span><span>Supabase</span><span>PostgreSQL</span>
+        </div>
       </div>
       <div class="project-card">
         <span class="proj-tag">AR · Android</span>
         <div class="proj-title">Augment Space</div>
         <p class="proj-desc">An augmented reality Android app that simplifies interior design. Users can place and interact with 3D furniture models in real-world spaces through their device camera, making complex AR technology accessible to everyday users.</p>
-        <div class="proj-stack"><span>Unity</span><span>ARCore</span><span>C#</span><span>Android</span></div>
+        <div class="proj-stack">
+          <span>Unity</span><span>ARCore</span><span>C#</span><span>Android</span>
+        </div>
       </div>
     </div>
   </div>
@@ -341,11 +372,10 @@
     <a href="mailto:jimmyjose13j@gmail.com">Email</a>
     <a href="#home">Back to top</a>
   </div>
-  <p>2025 Jimmy Jose · Hosted on Netlify</p>
+  <p>2026 Jimmy Jose · Hosted on Netlify</p>
 </footer>
 
 <script>
-  // Nav
   const ham = document.getElementById('ham');
   const mobileMenu = document.getElementById('mobileMenu');
   ham.addEventListener('click', function() {
@@ -356,8 +386,6 @@
     ham.classList.remove('open');
     mobileMenu.classList.remove('open');
   }
-
-  // Scroll reveal — only activate after page fully loaded
   window.addEventListener('load', function() {
     document.body.classList.add('animated');
     var reveals = document.querySelectorAll('.reveal');
@@ -368,8 +396,6 @@
     }, { threshold: 0.1 });
     reveals.forEach(function(r) { observer.observe(r); });
   });
-
-  // Web3Forms submit
   function handleSubmit(e) {
     e.preventDefault();
     var form = e.target;
