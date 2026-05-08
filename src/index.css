@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-surface: #fef9f0;
+  --color-on-surface: #1d1c17;
+  --color-primary: #006d36;
+  --color-primary-container: #00ff87;
+  --color-on-primary-container: #007138;
+  --color-secondary: #615e58;
+  --color-on-surface-variant: #3b4b3d;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-mono selection:bg-primary-container selection:text-on-primary-container;
+    background-image: 
+        linear-gradient(rgba(29, 28, 23, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(29, 28, 23, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+@layer components {
+  .scanline {
+    @apply fixed inset-0 z-50 pointer-events-none;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.01));
+    background-size: 100% 2px, 3px 100%;
+  }
+
+  .terminal-shadow {
+    box-shadow: 10px 10px 0px 0px #1d1c17;
+  }
+
+  .marquee {
+    @apply flex whitespace-nowrap overflow-hidden;
+  }
+
+  .marquee-content {
+    @apply flex;
+    animation: marquee 30s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
