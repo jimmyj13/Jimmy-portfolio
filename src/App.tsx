@@ -372,11 +372,9 @@ function Footer() {
       <div className="font-display text-2xl font-bold uppercase tracking-tight">SYS_ARCHIVE</div>
       
       <div className="flex gap-8 font-mono text-xs font-bold">
-        {["GITHUB", "LINKEDIN", "SOURCE_CODE"].map(link => (
-          <a key={link} href="#" className="hover:text-primary-container transition-colors uppercase">
-            {link}
-          </a>
-        ))}
+        <a href="https://github.com/jimmyj13" className="hover:text-primary-container transition-colors uppercase">GITHUB</a>
+        <a href="https://linkedin.com/in/jimmy-jose-5039a9201" className="hover:text-primary-container transition-colors uppercase">LINKEDIN</a>
+        <a href="mailto:jimmyjose13j@gmail.com" className="hover:text-primary-container transition-colors uppercase">CONTACT</a>
       </div>
       
       <div className="font-mono text-[10px] text-surface/50 uppercase tracking-widest text-center md:text-right">
